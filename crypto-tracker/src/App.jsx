@@ -1,21 +1,18 @@
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-import Home from "./pages/Home";
-import Favorites from "./pages/Favorites";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import DetailPage from "./pages/DetailPage";
+import FavoritesPage from "./pages/FavoritesPage";
+import Navbar from "./components/Navbar";
+import "./App.css";
 
 function App() {
   return (
     <BrowserRouter>
-      <nav className="navbar">
-        <h2>CryptoTracker</h2>
-        <div>
-          <Link to="/">Home</Link>
-          <Link to="/favorites">Favorites</Link>
-        </div>
-      </nav>
-
+      <Navbar />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/favorites" element={<Favorites />} />
+        <Route path="/" element={<HomePage />} />
+        <Route path="/coin/:id" element={<DetailPage />} />
+        <Route path="/favorites" element={<FavoritesPage />} />
       </Routes>
     </BrowserRouter>
   );
